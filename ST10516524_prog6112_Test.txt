@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class ElectronicsReport {
+    public static void main(String[] args) {
+        // Corrected to String array and added missing semicolon
+        String[] cities = {"cape town", "port Elizabeth", "pretoria"}; 
+        
+        // Added missing commas between rows
+        int[][] sales = { 
+            {1000, 2000, 3000}, 
+            {2000, 3000, 4000}, 
+            {1500, 1100, 1200} 
+        };
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("Number 1 Electronics report");
+        System.out.println("--------------------------------------------------");
+        
+        // Cleaned up the printf syntax for headers
+        System.out.printf("%-15s %-10s %-10s %-10s\n", "City", "PS5", "Xbox", "Switch");
+        System.out.println("--------------------------------------------------");
+
+        // Fixed capitalization and variable names (maxSales and maxCity)
+        int maxSales = 0; 
+        String maxCity = "";
+
+        // The loop must be inside the main method
+        // display sales and calculate total for each city
+        for (int i = 0; i < cities.length; i++) {
+            // Fixed system -> System and matched formatting flags
+            System.out.printf("%-15s %-10d %-10d %-10d\n", cities[i], sales[i][0], sales[i][1], sales[i][2]); 
+            
+            // Fixed the typo (= instead of +)
+            int totalCitySales = sales[i][0] + sales[i][1] + sales[i][2]; 
+            System.out.println("Total sales for " + cities[i] + ": " + totalCitySales);
+            System.out.println(); // Added for cleaner spacing
+
+            if (totalCitySales > maxSales) {
+                maxSales = totalCitySales;
+                maxCity = cities[i]; // Fixed typo 'citieds'
+            }
+        }
+
+        System.out.println("--------------------------------------------------");
+        System.out.println("Total sales for each city calculated");
+        System.out.println("--------------------------------------------------");
+        System.out.println("City with most gaming console sales: " + maxCity.toUpperCase());
+        System.out.println("Total sales: " + maxSales);
+        System.out.println("--------------------------------------------------");
+    }
+}
